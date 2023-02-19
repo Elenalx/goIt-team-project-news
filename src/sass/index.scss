@@ -1,2 +1,5 @@
-@import './common';
-@import './example';
+@import './base/normalize';
+@import './base/resetting';
+@import './base/fonts';
+@import './base/main-classes';
+@import './utils/variable';
