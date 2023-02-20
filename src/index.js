@@ -1,1 +1,1 @@
-import './js/news-list';
+// import './js/news-list';
