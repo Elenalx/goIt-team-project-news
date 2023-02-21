@@ -22,7 +22,7 @@ ul {
 
 a {
   text-decoration: none;
-  cursor: url("../images/cursor-hand.svg"), pointer;
+  cursor: url('../images/cursor-hand.svg'), pointer;
 }
 
 *,
@@ -65,7 +65,7 @@ body {
 }
 
 button {
-  cursor: url("../images/cursor-hand.svg"), pointer;
+  cursor: url('../images/cursor-hand.svg'), pointer;
   background-color: inherit;
   box-shadow: none;
   border: none;
@@ -125,11 +125,11 @@ body.is-fixed {
 }
 
 .opacity {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .no-opacity {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 /* @font-face {
@@ -309,7 +309,7 @@ body.is-fixed {
 }
 
 .search-field input {
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   color: var(--text-color);
   background: none;
   border: none;
@@ -341,7 +341,7 @@ body.is-fixed {
   .search-field input {
     width: 0;
     padding: 0;
-    transition: all .4s;
+    transition: all 0.4s;
   }
 }
 
@@ -371,7 +371,7 @@ body.is-fixed {
 
   .search-field__btn {
     color: var(--text-color);
-    transition: all .4s;
+    transition: all 0.4s;
   }
 }
 
@@ -457,36 +457,40 @@ body.is-fixed {
   cursor: pointer;
   background-color: var(--white-color);
   border: 1px solid var(--accent-color);
-  transition: all .4s;
+  transition: all 0.4s;
+
   position: absolute;
   inset: 0;
 }
 
 .slider:before {
-  content: "";
+  content: '';
   height: 16px;
   width: 16px;
   background-color: var(--accent-color);
-  transition: all .4s;
+  transition: all 0.4s;
+
+
   position: absolute;
   bottom: 1px;
   left: 1px;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   background-color: var(--white-color);
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: var(--accent-color);
   border: 1px solid var(--white-color);
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px var(--accent-color);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
+
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(20px);
@@ -529,7 +533,7 @@ input:checked+.slider:before {
   }
 
   .opacityForDark {
-    opacity: .4;
+    opacity: 0.4;
   }
 }
 
@@ -544,13 +548,12 @@ input:checked+.slider:before {
 .moon {
   fill: var(--switcher-gray-moon);
 }
-
 .mobile-menu {
   width: 100%;
   height: 100vh;
   background-color: var(--bg-color);
   z-index: 5;
-  transition: transform .25s cubic-bezier(.12, .56, .79, .6);
+  transition: transform 0.25s cubic-bezier(0.12, 0.56, 0.79, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -590,3 +593,4 @@ input:checked+.slider:before {
   stroke: var(--text-color);
   fill: var(--text-color);
 }
+

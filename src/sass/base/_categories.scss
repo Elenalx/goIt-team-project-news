@@ -33,17 +33,19 @@ body {
     scroll-behavior: smooth;
 }
 
-body {
-    height: 100vh;
-    width: 1280px;
-    background-color: #F4F4F4;
-    color: var(--text-color);
-    font-family: Manrope;
-    margin: 0;
-}
-
 li {
     list-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
 }
 
 .container {
@@ -58,11 +60,13 @@ li {
     display: flex;
 }
 
+// категорії
+
 .category {
     display: flex;
     gap: 10px;
     padding: 0;
-    align-items: center;
+    align-items: baseline;
 }
 
 .category__list-bt {
@@ -135,6 +139,8 @@ li {
     color: white;
 }
 
+// інпут і форма календаря
+
 .calendar-form__text {
     font-family: 'Manrope';
     font-style: normal;
@@ -154,7 +160,8 @@ li {
 .calendar-form {
     box-sizing: border-box;
     margin-left: 37px;
-    // width: 168px;
+    width: 168px;
+    position: relative;
     width: auto;
     height: 31px;
     border-radius: 20px;
@@ -211,6 +218,15 @@ li {
     display: flex;
 }
 
+.calendar-input.isActive {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border-color: var(--accent-color);
+    border: 1px solid #4440f7;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
 #input-picke {
     color: white;
     margin: 0 14px;
@@ -225,4 +241,261 @@ li {
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+}
+
+// випадаючі категорії
+
+.filter-category__list {
+    width: 148px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    padding: 14px;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    transform: translateY(-100%);
+}
+
+.filter-category__button {
+    color: #4440F6;
+}
+
+.filter-category__container {
+    z-index: 2;
+    pointer-events: none;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    overflow: hidden;
+
+    position: initial;
+    width: 168px;
+    height: 380px;
+    left: 646px;
+    top: 172px;
+
+    filter: drop-shadow(0px 10px 60px rgba(0, 0, 0, 0.1));
+}
+
+.category__others-container.is-open .filter-category__container {
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.category__others-container.is-open .filter-category__list {
+    visibility: visible;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transform: translateY(0);
+}
+
+.filter-category__others-container.is-open .filter-category__others-button {
+    color: white;
+    background-color: #4440F6;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+.category__others-container.is-open .category__button-arrow {
+    fill: white;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transform: rotateX(180deg);
+}
+
+.filter-category__list {
+    width: 148px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    padding: 14px;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    transform: translateY(-100%);
+}
+
+.category__others-container.is-open .filter-category__list {
+    visibility: visible;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transform: translateY(0);
+}
+
+// функціональність кнопки календар
+
+.calendar__button-calendar.switchedColor {
+    z-index: 1;
+    fill: #fff;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+.calendar__button-calendar {
+    fill: #4440f6;
+    cursor: pointer;
+    margin: 6px 12px;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    // position: absolute;
+}
+
+.calendar__button-arrow.switched {
+    fill: var(--white-color);
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transform: rotateX(180deg);
+}
+
+.calendar__button-arrow {
+    z-index: 1;
+    fill: var(--accent-color);
+    cursor: pointer;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    display: flex;
+    margin: 6px 12px;
+    // position: absolute;
+    right: 12px;
+}
+
+.calendar__button-arrow:hover,
+.calendar__button-arrow:focus {
+    fill: currentColor;
+}
+
+// форма календаря
+
+.calendar-wrapper.is-hidden-wrapper {
+    pointer-events: none;
+}
+
+.calendar-wrapper {
+    z-index: 2;
+    width: 250px;
+    height: 350px;
+    pointer-events: auto;
+    display: block;
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+}
+
+.calendar-wrapper.is-hidden-wrapper>.calendar-wrapper__container {
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transform: translateY(-104%);
+    box-shadow: 0 10px 60px rgb(0 0 0 / 0%);
+}
+
+.calendar-wrapper__container {
+    cursor: default;
+    z-index: 2;
+    width: 250px;
+    background: white;
+    border-radius: 20px;
+    margin-left: 0;
+    padding: 16px 16px 20px;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 60px rgb(0 0 0 / 10%);
+}
+
+.calendar-switcher {
+    height: 44px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    padding: 7px 0;
+    display: flex;
+}
+
+// календар
+
+.current-date {
+    letter-spacing: -.408px;
+    font-feature-settings: "case" on;
+    color: #000;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.38;
+}
+
+.calendar-icons {
+    color: var(--accent-color);
+    display: flex;
+}
+
+.calendar-icons span {
+    width: 38px;
+    text-align: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    fill: var(--accent-color);
+    border-radius: 50%;
+    margin: 0 1px;
+    font-size: 1.9rem;
+    line-height: 38px;
+    display: flex;
+}
+
+.calendar__button-arrow-icon {
+    cursor: pointer;
+}
+
+svg {
+    fill: currentColor;
+}
+
+.calendar-icons span:last-child {
+    margin-right: -10px;
+}
+
+.calendar li {
+    width: 14.2857%;
+    letter-spacing: -.078px;
+    color: rgba(60, 60, 67, .3);
+    margin-bottom: 14px;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.calendar .days li {
+    letter-spacing: .38px;
+    color: #000;
+    z-index: 1;
+    cursor: pointer;
+    margin-bottom: 12px;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.79;
+    position: relative;
+}
+
+.days li:before {
+    content: "";
+    height: 28px;
+    width: 28px;
+    z-index: -1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar ul {
+    text-align: center;
+    flex-wrap: wrap;
+    list-style: none;
+    display: flex;
 }
