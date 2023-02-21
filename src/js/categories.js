@@ -102,14 +102,14 @@ const renderCalendar = number => {
     // function addChangingDayListener() {
 
     dayChange.addEventListener('click', evt => {
-        // evt.preventDefault();
+        //evt.preventDefault();
         // evt.target.classList.toggle('active');
 
-        // function hideButton() {
-        //     if (showButton() && evt.target.contains('active')) {
+        //     function hideButton() {
+        //       if (showButton() && evt.target.contains('active')) {
         //         // evt.target.classList.remove('active');
+        //       }
         //     }
-        // }
         [...evt.currentTarget.children].forEach(item => {
             item.classList.remove('active');
             //console.log(item.textContent);

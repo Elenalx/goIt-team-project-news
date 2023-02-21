@@ -117,7 +117,7 @@ textarea {
 
 .category {
     display: flex;
-    // gap: 10px;
+    gap: 10px;
     padding: 0;
     align-items: baseline;
     height: 31px;
@@ -164,6 +164,7 @@ textarea {
     align-items: center;
     padding: 8px 21px;
     gap: 10px;
+    // margin-left: 10px;
 
     width: 112px;
     height: 31px;
@@ -209,7 +210,7 @@ textarea {
         font-weight: 700;
         font-size: 18px;
         line-height: 25px;
-        margin-left: 111px;
+        // margin-left: 111px;
         color: #111321;
     }
 }
@@ -594,7 +595,7 @@ svg {
         font-size: 18px;
         line-height: 1.38;
         color: var(--text-color);
-        margin-left: 111px;
+        // margin-left: 111px;
     }
 }
 
