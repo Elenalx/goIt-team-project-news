@@ -1,0 +1,121 @@
+.weather {
+  background-color: #4440f6;
+  padding-top: 37px;
+  padding-bottom: 32px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+}
+
+.weather__info {
+  margin-bottom: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 65px;
+  }
+}
+
+.weather__temp {
+  padding-right: 1px;
+  font-size: 55px;
+  line-height: 1.17;
+  border-right: 1px solid #ffffff;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 8px;
+    font-size: 64px;
+  }
+}
+
+.weather__descr {
+  margin-left: 11px;
+  font-size: 24px;
+  line-height: 1.17;
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+    margin-left: 15px;
+  }
+}
+
+.weather__img {
+  width: 176px;
+  margin: 0 auto 25px auto;
+
+  @media screen and (min-width: 768px) {
+    width: 206px;
+    margin-bottom: 65px;
+  }
+}
+
+.weather__date {
+  font-size: 28px;
+  line-height: 1.17;
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+  }
+}
+
+.weather__city,
+.weather__link {
+  background: rgba(254, 254, 255, 0.3);
+  border-radius: 10px;
+}
+
+.weather__city {
+  margin-left: 11px;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 1.14;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 8px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+}
+
+.weather__city svg {
+  margin-right: 4px;
+  width: 18px;
+  height: 18px;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 27px;
+    height: 27px;
+    margin-right: 8px;
+  }
+}
+
+.weather__link {
+  display: block;
+  padding: 8px 14px;
+  margin: 18px auto 0 auto;
+  width: 177px;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.1875;
+
+  @media screen and (min-width: 768px) {
+    padding: 9px 12px 10px 12px;
+    margin-top: 28px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  &:hover,
+  &:focus {
+    background: rgba(254, 254, 255, 0.2);
+  }
+}
