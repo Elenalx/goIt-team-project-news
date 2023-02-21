@@ -5,6 +5,7 @@
   text-align: center;
   color: #fff;
   font-family: 'Roboto', sans-serif;
+  border-radius: 4px;
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;
@@ -70,6 +71,8 @@
 }
 
 .weather__city {
+  display: flex;
+  align-items: center;
   margin-left: 11px;
   padding: 8px;
   font-size: 14px;
@@ -83,7 +86,6 @@
 }
 
 .weather__city svg {
-  margin-right: 4px;
   width: 18px;
   height: 18px;
   color: #fff;
@@ -91,7 +93,6 @@
   @media screen and (min-width: 768px) {
     width: 27px;
     height: 27px;
-    margin-right: 8px;
   }
 }
 
