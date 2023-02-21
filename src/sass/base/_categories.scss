@@ -56,7 +56,9 @@ textarea {
 }
 
 .filter-elements {
-    margin-top: 28px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
     display: flex;
 }
 
@@ -67,6 +69,7 @@ textarea {
     gap: 10px;
     padding: 0;
     align-items: baseline;
+    height: 31px;
 }
 
 .category__list-bt {
@@ -157,65 +160,93 @@ textarea {
     align-items: center;
 }
 
+// .calendar-form {
+//     box-sizing: border-box;
+//     margin-left: 37px;
+//     // width: 168px;
+//     position: relative;
+//     // width: auto;
+//     // height: 31px;
+//     border-radius: 20px;
+
+//     align-items: center;
+//     padding: 8px 21px;
+
+//     border: 1px solid #4440F7;
+//     border-radius: 20px;
+
+//     font-family: 'Manrope';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 12px;
+//     line-height: 16px;
+//     text-align: center;
+
+//     color: #4440F7;
+// }
+
 .calendar-form {
-    box-sizing: border-box;
-    margin-left: 37px;
-    width: 168px;
+    margin-left: 52px;
+}
+
+.calendar-form {
     position: relative;
-    width: auto;
-    height: 31px;
-    border-radius: 20px;
-
-    align-items: center;
-    padding: 8px 21px;
-
-    border: 1px solid #4440F7;
-    border-radius: 20px;
-
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-
-    color: #4440F7;
 }
 
-.calendar-form:hover,
-.calendar-form:focus {
-    background: #4440F6;
-    color: white;
-}
+// .calendar-form:hover,
+// .calendar-form:focus {
+//     background: #4440F6;
+//     color: white;
+// }
 
 .filter-category__button-arrow {
     order: 1;
     flex-grow: 0;
 }
 
-.calendar-form {
-    display: flex;
+// .calendar-form {
+//     display: flex;
+//     width: 168px;
+//     height: 31px;
+// }
+
+.calendar-input {
+    width: 168px;
+    height: 31px;
+    gap: 18px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .calendar-input {
-    border: none;
-    width: 105px;
-    height: 21px;
-
+    width: 152px;
+    height: 31px;
+    border: 1px solid var(--accent-color);
     text-align: center;
     letter-spacing: .02em;
+    color: var(--text-color);
+    cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
     border-radius: 20px;
     justify-content: space-between;
     align-items: center;
     gap: 13px;
-
+    padding: 5px 12px;
     font-family: Manrope;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.75;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: flex;
+    position: relative;
+}
+
+.calendar-input.isActive::placeholder {
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--white-color);
 }
 
 .calendar-input.isActive {
@@ -233,15 +264,22 @@ textarea {
 }
 
 .input-form {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
+    display: flex;
+    position: relative;
 }
+
+// .input-form {
+//     display: flex;
+//     align-items: center;
+
+//     font-family: 'Manrope';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 14px;
+//     line-height: 21px;
+// }
 
 // випадаючі категорії
 
@@ -332,10 +370,10 @@ textarea {
 .calendar__button-calendar {
     fill: #4440f6;
     cursor: pointer;
-    margin: 6px 12px;
+    margin-left: 12px;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-    // position: absolute;
+    position: absolute;
 }
 
 .calendar__button-arrow.switched {
@@ -349,11 +387,11 @@ textarea {
     z-index: 1;
     fill: var(--accent-color);
     cursor: pointer;
+    margin-left: 12px;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: flex;
-    margin: 6px 12px;
-    // position: absolute;
+    position: absolute;
     right: 12px;
 }
 
