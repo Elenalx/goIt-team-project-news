@@ -1,0 +1,99 @@
+.favorite-container {
+
+@media screen and (max-width: 767.98px) {
+padding-top: 40px;
+padding-bottom: 60px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+padding-top: 96px;
+padding-bottom: 100px;
+}
+
+@media screen and (min-width: 1280px) {
+padding-top: 75px;
+padding-bottom: 300px;}
+
+}
+
+.background___title {
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 27px;
+text-align: center;
+
+
+@media screen and (min-width: 767.99px) and (max-width: 1279px) {
+font-size: 40px;
+line-height: 55px;}
+
+
+@media screen and (min-width: 1280px) {
+font-size: 40px;
+line-height: 55px;}
+
+}
+
+.background___picture {
+
+margin-top: 40px;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 248px;
+height: auto;
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+width: 270px;
+}
+
+@media screen and (min-width: 1280px) {
+width: 350px;
+
+}
+}
+
+
+
+.background {
+font-family: Manrope;
+font-weight: 700;
+align-content: center;
+justify-content: center;
+text-align: center;
+place-content: center;
+margin-bottom: 59px;
+
+}
+
+
+.container {
+max-width: 480px;
+margin: 0 auto;
+padding-left: 16px;
+padding-right: 16px;
+}
+
+@media screen and (min-width: 767.98px) {
+.container {
+max-width: 768px; }
+}
+
+@media screen and (min-width: 1279.98px) {
+.container {
+ max-width: 1280px;}
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+.underfined {
+margin-top: 48px;
+margin-bottom: 101px;
+    }
+}
