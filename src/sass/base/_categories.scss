@@ -141,6 +141,7 @@ textarea {
         height: 31px;
 
         border: 1px solid #4440F7;
+        background-color: white;
         border-radius: 20px;
 
         font-family: 'Manrope';
@@ -170,12 +171,13 @@ textarea {
     height: 31px;
 
     border: 1px solid #4440F7;
+    background-color: white;
     border-radius: 20px;
     font-size: 12px;
     color: #4440F6;
 }
 
-.filter-category__button-arrow {
+.category__button-arrow {
     line-height: 16px;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
@@ -185,7 +187,7 @@ textarea {
 .category__item-bt-arrow:hover,
 .category__item-bt-arrow:focus {
     cursor: pointer;
-    background: #4440F7;
+    background-color: #4440F7;
     color: white;
     text-decoration-color: white;
 }
@@ -195,6 +197,7 @@ textarea {
     cursor: pointer;
     background-color: #4440F7;
     color: white;
+    text-decoration-color: white;
 }
 
 // інпут і форма календаря
@@ -313,6 +316,8 @@ textarea {
     align-items: center;
     display: flex;
     position: relative;
+    background-color: white;
+    border-radius: 20px;
 }
 
 // випадаючі категорії
@@ -395,12 +400,14 @@ textarea {
 @media screen and (min-width: 767.98px) {
     .category__others-container {
         width: 168px;
+        z-index: 2;
     }
 }
 
 @media screen and (max-width: 768px) {
     .category__others-container {
         width: 148px;
+        z-index: 2;
     }
 }
 

@@ -179,3 +179,13 @@ prevNextIcon.forEach(icon => {
 
 localStorage.removeItem('VALUE');
 localStorage.removeItem('date');
+
+// відкиває інші категорії
+
+const otherEl = document.querySelector('.category__others-container');
+
+otherEl.addEventListener('click', onClickOther);
+
+function onClickOther(evt) {
+    evt.currentTarget.classList.toggle('is-open');
+}
