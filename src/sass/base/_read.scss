@@ -4,6 +4,9 @@
   padding-left: 16px;
   padding-right: 16px;
 }
+.list-news__item:not(:last-child) {
+  margin-bottom: 28px;
+}
 @media screen and (min-width: 767.98px) {
   .container-read {
     max-width: 768px;
@@ -47,11 +50,12 @@
   padding-top: 8px;
   display: flex;
 }
-
-.list-news {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+@media screen and (min-width: 767.98px) {
+  .list-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
 }
 
 .is-hidden {
