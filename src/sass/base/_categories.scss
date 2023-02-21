@@ -55,9 +55,62 @@ textarea {
     padding-right: 16px;
 }
 
-.filter-elements {
-    margin-top: 28px;
-    display: flex;
+@media screen and (min-width: 767.98px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 1279.98px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    .category__item-bt+.category__item-bt {
+        margin-left: 14px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    .category__item-bt:nth-child(n+5) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .category__item-bt {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 767.98px) {
+    .category__list-bt {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 767.98px) {
+    .filter-elements {
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 24px;
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .filter-elements {
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 24px;
+        display: flex;
+    }
 }
 
 // категорії
@@ -67,6 +120,7 @@ textarea {
     gap: 10px;
     padding: 0;
     align-items: baseline;
+    height: 31px;
 }
 
 .category__list-bt {
@@ -74,31 +128,34 @@ textarea {
     gap: 10px;
 }
 
+@media screen and (min-width: 768px) {
+    .category__item-bt {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 21px;
+        gap: 10px;
 
-.category__item-bt {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 21px;
-    gap: 10px;
+        width: auto;
+        height: 31px;
 
-    width: auto;
-    height: 31px;
+        border: 1px solid #4440F7;
+        border-radius: 20px;
 
-    border: 1px solid #4440F7;
-    border-radius: 20px;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
 
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
+        color: #4440F7;
 
-    color: #4440F7;
-
+    }
 }
+
+
 
 .category__item-bt-arrow {
     display: flex;
@@ -107,6 +164,7 @@ textarea {
     align-items: center;
     padding: 8px 21px;
     gap: 10px;
+    // margin-left: 10px;
 
     width: 112px;
     height: 31px;
@@ -142,14 +200,19 @@ textarea {
 // інпут і форма календаря
 
 .calendar-form__text {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    margin-left: 111px;
+    display: none;
+}
 
-    color: #111321;
+@media screen and (min-width: 1280px) {
+    .calendar-form__text {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        // margin-left: 111px;
+        color: #111321;
+    }
 }
 
 .calendar-btn {
@@ -157,65 +220,78 @@ textarea {
     align-items: center;
 }
 
-.calendar-form {
-    box-sizing: border-box;
-    margin-left: 37px;
-    width: 168px;
-    position: relative;
-    width: auto;
-    height: 31px;
-    border-radius: 20px;
-
-    align-items: center;
-    padding: 8px 21px;
-
-    border: 1px solid #4440F7;
-    border-radius: 20px;
-
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-
-    color: #4440F7;
+@media screen and (max-width: 768px) {
+    .calendar-form {
+        margin-left: 24px;
+        position: relative;
+    }
 }
 
-.calendar-form:hover,
-.calendar-form:focus {
-    background: #4440F6;
-    color: white;
+@media screen and (min-width: 320px) and (max-width: 767.98px) {
+    .calendar-form {
+        // margin-left: 52px;
+        position: relative;
+    }
 }
+
+// @media screen and (min-width: 768px) {
+//     .calendar-form {
+//         margin-left: 52px;
+//         position: relative;
+//     }
+// }
+
 
 .filter-category__button-arrow {
     order: 1;
     flex-grow: 0;
 }
 
-.calendar-form {
-    display: flex;
+.calendar-input {
+    @media screen and (min-width: 768px) {
+        width: 168px;
+        height: 31px;
+        gap: 18px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    width: 168px;
+    height: 31px;
+    gap: 18px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .calendar-input {
-    border: none;
-    width: 105px;
-    height: 21px;
-
+    width: 152px;
+    height: 31px;
+    border: 1px solid var(--accent-color);
     text-align: center;
     letter-spacing: .02em;
+    color: var(--text-color);
+    cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
     border-radius: 20px;
     justify-content: space-between;
     align-items: center;
     gap: 13px;
-
+    padding: 5px 12px;
     font-family: Manrope;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.75;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: flex;
+    position: relative;
+}
+
+.calendar-input.isActive::placeholder {
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--white-color);
 }
 
 .calendar-input.isActive {
@@ -233,14 +309,10 @@ textarea {
 }
 
 .input-form {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
+    display: flex;
+    position: relative;
 }
 
 // випадаючі категорії
@@ -320,6 +392,18 @@ textarea {
     transform: translateY(0);
 }
 
+@media screen and (min-width: 767.98px) {
+    .category__others-container {
+        width: 168px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .category__others-container {
+        width: 148px;
+    }
+}
+
 // функціональність кнопки календар
 
 .calendar__button-calendar.switchedColor {
@@ -332,10 +416,10 @@ textarea {
 .calendar__button-calendar {
     fill: #4440f6;
     cursor: pointer;
-    margin: 6px 12px;
+    margin-left: 12px;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-    // position: absolute;
+    position: absolute;
 }
 
 .calendar__button-arrow.switched {
@@ -349,11 +433,11 @@ textarea {
     z-index: 1;
     fill: var(--accent-color);
     cursor: pointer;
+    margin-left: 12px;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: flex;
-    margin: 6px 12px;
-    // position: absolute;
+    position: absolute;
     right: 12px;
 }
 
@@ -498,4 +582,66 @@ svg {
     flex-wrap: wrap;
     list-style: none;
     display: flex;
+}
+
+.calendar-form__text {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+        display: inline;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.38;
+        color: var(--text-color);
+        // margin-left: 111px;
+    }
+}
+
+.calendar-form {
+    position: relative;
+
+    @media screen and (min-width: 1280px) {
+        margin-left: 52px;
+    }
+}
+
+.calendar-input {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 13px;
+
+    width: 152px;
+    height: 31px;
+    padding: 5px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+
+    text-align: center;
+
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+
+    color: var(--text-color);
+    background-color: transparent;
+
+    cursor: pointer;
+
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: 767.98px) {
+        width: 168px;
+        height: 31px;
+        font-size: 14px;
+        line-height: 1.5;
+        gap: 18px;
+    }
 }

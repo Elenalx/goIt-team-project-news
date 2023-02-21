@@ -1,53 +1,47 @@
 <div class="container filter-elements">
     <div class="category">
         <ul class="category__list-bt">
-            <button class="category__item-bt">${}</button>
-            <button class="category__item-bt">${}</button>
-            <button class="category__item-bt">${}</button>
-            <button class="category__item-bt">${}</button>
-            <button class="category__item-bt">${}</button>
-            <button class="category__item-bt">${}</button>
-            <div class="category__others-container">
-                <!-- is-open після category__others-container при натиску на other -->
-                <button class="category__item-bt-arrow">
-                    <span>Other</span>
-                    <svg class="category__button-arrow" width="14" height="14">
-                        <use href="/src/images/sprite.svg#arrow-down"></use>
-                    </svg>
-                </button>
-                <div class="filter-category__container">
-                    <ul class="filter-category__list">
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                        <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    </ul>
-                </div>
-            </div>
-
-
+            <li class="category__item-bt">Admin</li>
+            <li class="category__item-bt">Arts</li>
+            <li class="category__item-bt">Automobiles</li>
+            <li class="category__item-bt">Books</li>
+            <li class="category__item-bt">Briefing</li>
+            <li class="category__item-bt">Buisness</li>
         </ul>
+        <div class="category__others-container">
+            <!-- is-open після category__others-container при натиску на other -->
+            <button class="category__item-bt-arrow">
+                <span>Other</span>
+                <svg class="category__button-arrow" width="14" height="14">
+                    <use href="/src/images/sprite.svg#arrow-down"></use>
+                </svg>
+            </button>
+            <div class="filter-category__container">
+                <ul class="filter-category__list">
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
+                </ul>
+            </div>
+        </div>
         <p class="calendar-form__text">Search date news</p>
-        <!-- <div class="calendar-btn">
-            <button class="calendar-form">`` 18.02.2023 ``</button>
-        </div> -->
         <div class="calendar-form">
             <div class="input-form" data-modal-open data-modal-close>
                 <svg class="calendar__button-calendar" width="14" height="14">
                     <!-- switchedColor після calendar__button-calendar при натиску на календар-->
                     <use href="./images/sprite.svg#calendar"></use>
                 </svg>
-                <input readonly id="input-picker" class="calendar-input datepicker-here"
-                    placeholder="Виберіть дату..." />
+                <input readonly id="input-picker" class="calendar-input datepicker-here" placeholder="Enter date..." />
                 <!-- isActive після datepicker-here при натиску на календар -->
                 <svg class="calendar__button-arrow" width="14" height="14">
                     <!-- switched після calendar__button-arrow при натиску на календар-->
@@ -58,11 +52,7 @@
                 <!-- is-hidden-wrapper зникає після calendar-wrapper при натиску на календар -->
                 <div class="calendar-wrapper__container">
                     <div class="calendar-switcher">
-                        <p class="current-date">${}</p>
-                        <!-- <span id = 'next' class="calendar-icons"><svg class="current-date__icon">
-                      <use href="./images/sprite.svg#arrow-up"></use>
-                    </svg>
-                    </span> -->
+                        <p class="current-date"></p>
                         <div class="calendar-icons">
                             <span id="prev" class="material-symbols-rounded">
                                 <svg class="calendar__button-arrow-icon" width="14" height="14" transform="rotate(90)">
@@ -87,93 +77,9 @@
                             <li class="calendar-weeks__item">Sat</li>
                         </ul>
                         <ul class="days">
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
-                            <li class="calendar-days">1</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="category">
-        <ul class="category__list-bt">
-            <button class="category__item-bt">Lorem.</button>
-            <button class="category__item-bt">Lorem.</button>
-            <button class="category__item-bt">Lorem dolor.</button>
-            <button class="category__item-bt">Lorem.</button>
-            <button class="category__item-bt">Lorem.</button>
-            <button class="category__item-bt">Lorem.</button>
-            <button class="category__item-bt-arrow">
-                <span>Other</span>
-                <svg class="category__button-arrow" width="14" height="14">
-                    <use href="/src/images/sprite.svg#arrow-down"></use>
-                </svg>
-            </button>
-            <!-- <div class="filter-category__container">
-                <ul class="filter-category__list">
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                    <li class="filter-category__item"><button class="filter-category__button">${}</button></li>
-                </ul>
-            </div> -->
-        </ul>
-        <p class="calendar-form__text">Search date news</p>
-        <!-- <div class="calendar-btn">
-            <button class="calendar-form">`` 18.02.2023 ``</button>
-        </div> -->
-        <div class="calendar-form">
-            <div class="input-form" data-modal-open data-modal-close>
-                <svg class="calendar__button-calendar" width="14" height="14">
-                    <use href="./images/sprite.svg#calendar"></use>
-                </svg>
-                <input readonly id="input-picker" class="calendar-input datepicker-here"
-                    placeholder="Виберіть дату..." />
-                <svg class="calendar__button-arrow" width="14" height="14">
-                    <use href="./images/sprite.svg#arrow-down"></use>
-                </svg>
             </div>
         </div>
     </div>

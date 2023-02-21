@@ -1,2 +1,3 @@
-import './js/weather';
+import './js/dark-light_theme';
+import './js/categories';
 
