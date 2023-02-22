@@ -172,14 +172,14 @@ body.is-fixed {
     font-display: swap;
   } */
 
-/* body.darkMode .header {
-    border-bottom: 1px solid #f4f4f433;
-  }
-  
-  body.darkMode .theme__dark {
-    opacity: 1;
-  }
-   */
+body.darkMode .header {
+  border-bottom: 1px solid #f4f4f433;
+}
+
+body.darkMode .theme__dark {
+  opacity: 1;
+}
+
 .header {
   min-height: 81px;
   border-bottom: 1px solid #0003;
@@ -470,7 +470,6 @@ body.is-fixed {
   background-color: var(--accent-color);
   transition: all 0.4s;
 
-
   position: absolute;
   bottom: 1px;
   left: 1px;
@@ -490,7 +489,6 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(20px);
@@ -593,4 +591,3 @@ input:checked + .slider:before {
   stroke: var(--text-color);
   fill: var(--text-color);
 }
-
