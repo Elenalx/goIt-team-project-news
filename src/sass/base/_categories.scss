@@ -334,7 +334,7 @@ textarea {
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: block;
     transform: translateY(-100%);
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .filter-category__item-bt:hover,
@@ -359,7 +359,7 @@ textarea {
     pointer-events: none;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-    overflow: scroll;
+    overflow-y: auto;
 
     position: initial;
     width: 168px;
