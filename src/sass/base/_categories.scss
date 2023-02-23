@@ -334,10 +334,24 @@ textarea {
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: block;
     transform: translateY(-100%);
+    overflow: scroll;
+}
+
+.filter-category__item-bt:hover,
+.filter-category__item-bt:focus {
+    background-color: #4440F7;
 }
 
 .filter-category__button {
-    color: #4440F6;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    color: #4440F7;
 }
 
 .filter-category__container {
@@ -345,7 +359,7 @@ textarea {
     pointer-events: none;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-    overflow: hidden;
+    overflow: scroll;
 
     position: initial;
     width: 168px;
@@ -383,14 +397,19 @@ textarea {
 }
 
 .filter-category__list {
-    width: 148px;
+    width: 168px;
+    height: 380px;
     background-color: #f8f8f8;
     border-radius: 20px;
     padding: 14px;
     transition-duration: .25s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     display: block;
-    transform: translateY(-100%);
+    transform: translateY(-100%)
+}
+
+.filter-category__item {
+    margin-bottom: 12px;
 }
 
 .category__others-container.is-open .filter-category__list {
