@@ -3,9 +3,11 @@ import RenderNews from '../renderNews';
 const newsList = document.querySelector('.list-news');
 // const addToFavoriteBtn = document.querySelector('.item-news__add-to-favorite');
 
-// const renderNews = new RenderNews();
 
-localStorage.setItem('favorite', []);
+const favoriteNewsArr = [];
+localStorage.setItem('favorite', favoriteNewsArr);
+const x = localStorage.getItem('favorite');
+console.log(x);
 
 export default class LocalStorageClass {
   constructor() {
@@ -19,32 +21,42 @@ export default class LocalStorageClass {
       ) {
         return;
       }
+      
+      e.target                                      // toggle class
+        .closest('.item-news__add-to-favorite') 
+        .classList.toggle('hidden-span');
+      const choosenNews = (e.target.closest('.list-news__item')); // лишка 
+      const choosenNewsId = choosenNews.dataset.id;   // id лишки
+      const localStorageFavoriteData = localStorage.getItem('favorite'); // данные с LS
+      const parsedData = JSON.parse(localStorageFavoriteData);  // распарсенніе данные (массив объектов)
+      console.log(parsedData);
 
-
-        const choosenNews = (e.target.closest('.list-news__item'));
-        const choosenNewsId = choosenNews.dataset.id;
-        const doesHaveElement = this.favorite.findIndex(
+        const doesHaveElement = parsedData.findIndex(
           news => news.id === choosenNewsId
         );
 
+      console.log(doesHaveElement);
+
 
         if (doesHaveElement < 0) {
-            e.target
-              .closest('.item-news__add-to-favorite')
-                .classList.toggle('hidden-span');
             const choosenNewsMarkup = `<li class="list-news__item popular-news__item"data-id=${choosenNewsId}>${choosenNews.innerHTML}</li>`;
             const chooseNewsObj = {
                       id: choosenNewsId,
                       markup: choosenNewsMarkup,
             };
-            this.favorite.push(chooseNewsObj);
+          parsedData.push(chooseNewsObj);
+          localStorage.setItem('favorite', JSON.stringify(parsedData));
+          console.log()
+          // localStorageFavorite.push(chooseNewsObj);
+          // console.log(localStorageFavorite);
+          // this.favorite.push(chooseNewsObj);
         } else {
 
         }
 
-        console.log(`after everything`);
-        console.log(this.favorite);
-        console.log(doesHaveElement);
+        // console.log(`after everything`);
+        // console.log(this.favorite);
+        // console.log(doesHaveElement);
         //  this.favorite.splice(doesHaveElement, 1);
 
         
