@@ -125,7 +125,7 @@ async function onNextBtnClick() {
         console.log(error);
       }
     }
-  } else { 
+  } else {
     if (renderNews.currentPage === renderNews.maxPages) {
       return;
     } else {
@@ -161,15 +161,15 @@ async function onCategoryClick(e) {
   if (!e.target.hasAttribute('name')) {
     return;
   }
-    fetchNews.category = encodeURIComponent(
-      e.target.getAttribute('name').toLowerCase()
-    );
+  fetchNews.category = encodeURIComponent(
+    e.target.getAttribute('name').toLowerCase()
+  );
   console.log(fetchNews.category);
   try {
     const fetchCategoryNews = await fetchNews.fetchNewsByCategory();
     renderNews.renderCategoryNews(fetchCategoryNews.results, newsList);
   }
-  catch (error){console.log(error)}
+  catch (error) { console.log(error) }
 }
 
 async function getCategoriesList() {
@@ -184,11 +184,11 @@ async function getCategoriesList() {
     );
   }
   for (let j = 6; j <= 49; j += 1) {
-      const otherCategoryElem = document.createElement('li');
-      const otherCategoryBtn = document.createElement('button');
-      otherCategoryElem.classList.add('filter-category__item');
-      otherCategoryBtn.classList.add('filter-category__button');
-      otherCategoryElem.append(otherCategoryBtn);
+    const otherCategoryElem = document.createElement('li');
+    const otherCategoryBtn = document.createElement('button');
+    otherCategoryElem.classList.add('filter-category__item');
+    otherCategoryBtn.classList.add('filter-category__button');
+    otherCategoryElem.append(otherCategoryBtn);
     otherCategoryBtn.textContent = `${categoriesArr[j]['display_name']}`;
     otherCategoryBtn.setAttribute(
       'name',
