@@ -4,17 +4,10 @@
     <nav>
       <ul class="navbar">
         <li class="navbar__item">
-          <a
-            href="./index.html"
-            class="navbar__link navbar__link--current"
-            data-name="home"
-            >Home</a
-          >
+          <a href="./index.html" class="navbar__link navbar__link--current" data-name="home">Home</a>
         </li>
         <li class="navbar__item">
-          <a href="./favorite.html" class="navbar__link" data-name="favorite"
-            >Favorite</a
-          >
+          <a href="./favorite.html" class="navbar__link" data-name="favorite">Favorite</a>
         </li>
         <li class="navbar__item">
           <a href="./read.html" class="navbar__link" data-name="read">Read</a>
@@ -22,10 +15,12 @@
       </ul>
     </nav>
     <form class="search-field" id="form-field">
+      <button class="search-field__btn" id="form-btn">
         <svg class="search__icon" width="16" height="15">
           <use href="./images/sprite.svg#search-icon"></use>
         </svg>
       </button>
+      <input type="text" id="search-field__input" placeholder="Search" />
     </form>
     <div class="theme">
       <svg class="theme__svg sun" width="21" height="21">
