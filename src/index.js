@@ -4,6 +4,7 @@ import './js/weather';
 import './js/mobile-menu';
 import FetchNews from './js/fetchNews';
 import RenderNews from './js/renderNews';
+import Weather from './js/weather';
 
 const mobileScreenSize = window.matchMedia(
   'screen and (max-width: 767px)'
@@ -15,17 +16,17 @@ const desktopScreenSize = window.matchMedia(
   'screen and (min-width: 1280px)'
 ).matches;
 
+const weather = new Weather();
 const renderNews = new RenderNews();
 const fetchNews = new FetchNews();
 const newsList = document.querySelector('.list-news');
-console.log(newsList);
 const searchForm = document.querySelector('.search-field');
 const prevPage = document.querySelector('.prev__page');
 const nextPage = document.querySelector('.next__page');
 const categoriesList = document.querySelector('.category__list-bt');
 const otherCategoriesBtn = document.querySelector('.category__item-bt-arrow');
 const otherCategoriesThumb = document.querySelector('.filter-category__list');
-const weather = document.querySelector('.weather');
+
 
 categoriesList.addEventListener('click', onCategoryClick);
 otherCategoriesThumb.addEventListener('click', onCategoryClick);
@@ -38,13 +39,11 @@ searchForm.addEventListener('submit', onFormSubmit);
 
 // --------------------------------------------- вызовы функций при первой загрузке ---------------------------------------------
 
-fetchNews
-  .fetchNewsByMostPopular()
-  .then(result => renderNews.renderPopularNews(result.results, newsList))
-  .catch(error => console.log(error));
+      
+onPageLoad();
+
 
 getCategoriesList();
-
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -126,7 +125,7 @@ async function onNextBtnClick() {
         console.log(error);
       }
     }
-  } else {
+  } else { 
     if (renderNews.currentPage === renderNews.maxPages) {
       return;
     } else {
@@ -162,15 +161,15 @@ async function onCategoryClick(e) {
   if (!e.target.hasAttribute('name')) {
     return;
   }
-  fetchNews.category = encodeURIComponent(
-    e.target.getAttribute('name').toLowerCase()
-  );
+    fetchNews.category = encodeURIComponent(
+      e.target.getAttribute('name').toLowerCase()
+    );
   console.log(fetchNews.category);
   try {
     const fetchCategoryNews = await fetchNews.fetchNewsByCategory();
     renderNews.renderCategoryNews(fetchCategoryNews.results, newsList);
   }
-  catch (error) { console.log(error) }
+  catch (error){console.log(error)}
 }
 
 async function getCategoriesList() {
@@ -185,11 +184,11 @@ async function getCategoriesList() {
     );
   }
   for (let j = 6; j <= 49; j += 1) {
-    const otherCategoryElem = document.createElement('li');
-    const otherCategoryBtn = document.createElement('button');
-    otherCategoryElem.classList.add('filter-category__item');
-    otherCategoryBtn.classList.add('filter-category__button');
-    otherCategoryElem.append(otherCategoryBtn);
+      const otherCategoryElem = document.createElement('li');
+      const otherCategoryBtn = document.createElement('button');
+      otherCategoryElem.classList.add('filter-category__item');
+      otherCategoryBtn.classList.add('filter-category__button');
+      otherCategoryElem.append(otherCategoryBtn);
     otherCategoryBtn.textContent = `${categoriesArr[j]['display_name']}`;
     otherCategoryBtn.setAttribute(
       'name',
@@ -199,7 +198,34 @@ async function getCategoriesList() {
   }
 }
 
+
+
+
+async function onPageLoad() {
+ await weather
+    .getWeather(weather.latitude, weather.longitude)
+    .then(response => {
+      weather.renderWeatherElement(response);
+      renderNews.weatherMarkup = weather.markup;
+    })
+    .catch(error => console.log(error));
+
+fetchNews
+    .fetchNewsByMostPopular()
+   .then(result => {
+     renderNews.renderPopularNews(result.results, newsList);
+     weather.askGeo();
+   })
+   .catch(error => console.log(error));
+}
+
 // добавить категории для мобилки 
 
+// добавить клик по фаворит  класс hidden-span
 
+// при сабмите возвращаться на главную 
+
+// ан аккордеоне добавлять класс   is-hidden
+
+// выбор даты и сохранение 
 
