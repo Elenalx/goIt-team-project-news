@@ -1,5 +1,7 @@
 import { format, compareAsc } from 'date-fns';
+// import Weather from '../weather';
 
+// const weather = new Weather();
 const mobileScreenSize = window.matchMedia(
   'screen and (max-width: 767px)'
 ).matches;
@@ -9,7 +11,7 @@ const tabletScreenSize = window.matchMedia(
 const desktopScreenSize = window.matchMedia(
   'screen and (min-width: 1280px)'
 ).matches;
-const weatherMarkup = `<div class="weather"></div>`;
+// const weatherMarkup = `<div class="weather"></div>`;
 
 export default class RenderNews {
   constructor() {
@@ -17,8 +19,10 @@ export default class RenderNews {
     this.lastElem = 8;
     this.firstElem = 0;
     this.maxPages = 3;
+    this.weatherMarkup = '';
   }
-  renderPopularNews(newsArr, elemToJoin) {
+  async renderPopularNews(newsArr, elemToJoin) {
+    
     console.log(newsArr);
     if (mobileScreenSize === true) {
       this.lastElem = this.currentPage * 4;
@@ -28,6 +32,10 @@ export default class RenderNews {
       this.lastElem = this.currentPage * 7;
       this.firstElem = this.lastElem - 7;
       this.maxPages = Math.ceil(newsArr.length / 8);
+    } else if (desktopScreenSize === true) {
+      this.lastElem = this.currentPage * 8;
+      this.firstElem = this.lastElem - 8;
+      this.maxPages = Math.ceil(newsArr.length / 9);
     }
     const newsList = newsArr.slice(this.firstElem, this.lastElem);
     const newsMarkup = newsList.map(
@@ -110,7 +118,7 @@ export default class RenderNews {
       }
     );
     if (mobileScreenSize === true) {
-      newsMarkup.splice(0, 0, weatherMarkup);
+      newsMarkup.splice(0, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -118,7 +126,7 @@ export default class RenderNews {
         .join('');
       elemToJoin.innerHTML = newsMarkupWithWeather;
     } else if (tabletScreenSize === true) {
-      newsMarkup.splice(1, 0, weatherMarkup);
+      newsMarkup.splice(1, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -126,7 +134,7 @@ export default class RenderNews {
         .join('');
       elemToJoin.innerHTML = newsMarkupWithWeather;
     } else if (desktopScreenSize === true) {
-      newsMarkup.splice(2, 0, weatherMarkup);
+      newsMarkup.splice(2, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -225,7 +233,7 @@ export default class RenderNews {
       }
     );
     if (mobileScreenSize === true) {
-      newsMarkup.splice(0, 0, weatherMarkup);
+      newsMarkup.splice(0, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -233,7 +241,7 @@ export default class RenderNews {
         .join('');
       elem.innerHTML = newsMarkupWithWeather;
     } else if (tabletScreenSize === true) {
-      newsMarkup.splice(1, 0, weatherMarkup);
+      newsMarkup.splice(1, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -241,7 +249,7 @@ export default class RenderNews {
         .join('');
       elem.innerHTML = newsMarkupWithWeather;
     } else if (desktopScreenSize === true) {
-      newsMarkup.splice(2, 0, weatherMarkup);
+      newsMarkup.splice(2, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -344,7 +352,7 @@ export default class RenderNews {
       }
     );
     if (mobileScreenSize === true) {
-      newsMarkup.splice(0, 0, weatherMarkup);
+      newsMarkup.splice(0, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -352,7 +360,7 @@ export default class RenderNews {
         .join('');
       elemToJoin.innerHTML = newsMarkupWithWeather;
     } else if (tabletScreenSize === true) {
-      newsMarkup.splice(1, 0, weatherMarkup);
+      newsMarkup.splice(1, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
@@ -360,7 +368,7 @@ export default class RenderNews {
         .join('');
       elemToJoin.innerHTML = newsMarkupWithWeather;
     } else if (desktopScreenSize === true) {
-      newsMarkup.splice(2, 0, weatherMarkup);
+      newsMarkup.splice(2, 0, this.weatherMarkup);
       const newsMarkupWithWeather = newsMarkup
         .map(news => {
           return news;
