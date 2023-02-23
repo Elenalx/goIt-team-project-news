@@ -1,11 +1,16 @@
 import './js/dark-light_theme';
 import './js/categories';
 import './js/weather';
-// import './js/mobile-menu';
+import './js/mobile-menu';
+import './js/localStorage';
 import FetchNews from './js/fetchNews';
 import RenderNews from './js/renderNews';
 import Weather from './js/weather';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 
+
+  
 const mobileScreenSize = window.matchMedia(
   'screen and (max-width: 767px)'
 ).matches;
@@ -15,7 +20,34 @@ const tabletScreenSize = window.matchMedia(
 const desktopScreenSize = window.matchMedia(
   'screen and (min-width: 1280px)'
 ).matches;
-
+const options = {
+  totalItems: 10,
+  itemsPerPage: 10,
+  visiblePages: 10,
+  page: 1,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+const container = document.getElementById('pagination', options);
+const pagination = new Pagination(container);
 const weather = new Weather();
 const renderNews = new RenderNews();
 const fetchNews = new FetchNews();
@@ -24,8 +56,11 @@ const searchForm = document.querySelector('.search-field');
 const prevPage = document.querySelector('.prev__page');
 const nextPage = document.querySelector('.next__page');
 const categoriesList = document.querySelector('.category__list-bt');
-const otherCategoriesBtn = document.querySelector('.category__item-bt-arrow');
+const otherCategoryBtn = document.querySelector('.category__item-bt-arrow');
 const otherCategoriesThumb = document.querySelector('.filter-category__list');
+const otherCategoryContainer = document.querySelector(
+  '.category__others-container'
+);
 
 
 categoriesList.addEventListener('click', onCategoryClick);
@@ -52,8 +87,14 @@ getCategoriesList();
 // }
 
 // function onDocumentClick(e) {
-//   if (e.target !== otherCategoriesThumb && e.target !== otherCategoriesBtn) {
-//     otherCategoriesThumb.classList.add('is-hidden');
+//   if (e.target !== otherCategoryContainer && e.target !== otherCategoryBtn) {
+//     otherCategoryContainer.classList.remove('is-open');
+//   }
+// }
+
+// function onDocumentClick(e) {
+//   if (e.currentTarget !== otherCategoryContainer) {
+//     otherCategoryContainer.classList.remove('is-open');
 //   }
 // }
 

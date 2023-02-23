@@ -17,8 +17,6 @@ export default class Weather {
 
 
   onSuccess(position) {
-    console.log(position);
-    console.log(this);
     const weatherTemp = document.querySelector('.weather__temp');
     const weatherDescr = document.querySelector('.weather__descr');
     const cityNme = document.querySelector('.city-name');
@@ -28,7 +26,6 @@ export default class Weather {
     this.latitude = position.coords.latitude;
     this.longitude = position.coords.longitude;
     this.getWeather(this.latitude, this.longitude).then(response => {
-      console.log(response);
       cityNme.textContent = response.name;
       weatherTemp.textContent = `${(response.main.temp / 100).toFixed()}°`;
       weatherDescr.textContent = response.weather[0].main;
