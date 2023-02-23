@@ -20,6 +20,8 @@ const tabletScreenSize = window.matchMedia(
 const desktopScreenSize = window.matchMedia(
   'screen and (min-width: 1280px)'
 ).matches;
+
+// ------------------------------------------ paginator ------------------------------------------
 const options = {
   totalItems: 10,
   itemsPerPage: 10,
@@ -48,6 +50,9 @@ const options = {
 };
 const container = document.getElementById('pagination', options);
 const pagination = new Pagination(container);
+
+//  ------------------------------------------ paginator ------------------------------------------
+
 const weather = new Weather();
 const renderNews = new RenderNews();
 const fetchNews = new FetchNews();
