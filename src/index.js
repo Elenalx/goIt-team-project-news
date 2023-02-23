@@ -1,7 +1,7 @@
 import './js/dark-light_theme';
 import './js/categories';
 import './js/weather';
-import './js/mobile-menu';
+// import './js/mobile-menu';
 import FetchNews from './js/fetchNews';
 import RenderNews from './js/renderNews';
 import Weather from './js/weather';
