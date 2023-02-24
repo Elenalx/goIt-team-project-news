@@ -8,10 +8,10 @@ const favoriteMobileLinkEl = document.querySelector(
 );
 const readMobileLinkEl = document.querySelector('[data-name="read-mobile"]');
 
-readLinkEl.classList.add('navbarlink--current');
-favoriteLinkEl.classList.remove('navbarlink--current');
-homeLinkEl.classList.remove('navbarlink--current');
+readLinkEl.classList.add('navbar__link--current');
+favoriteLinkEl.classList.remove('navbar__link--current');
+homeLinkEl.classList.remove('navbar__link--current');
 
-readMobileLinkEl.classList.add('navbar-mobilelink--current');
-homeMobileLinkEl.classList.remove('navbar-mobilelink--current');
-favoriteMobileLinkEl.classList.remove('navbar-mobilelink--current');
+readMobileLinkEl.classList.add('navbar-mobile__link--current');
+homeMobileLinkEl.classList.remove('navbar-mobile__link--current');
+favoriteMobileLinkEl.classList.remove('navbar-mobile__link--current');
