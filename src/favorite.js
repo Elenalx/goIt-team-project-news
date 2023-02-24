@@ -1,6 +1,6 @@
 // import './js/localStorage';
 import LocalStorageClass from './js/localStorage';
-
+import './js/dark-light_theme';
 
 const localStorageEntity = new LocalStorageClass();
 

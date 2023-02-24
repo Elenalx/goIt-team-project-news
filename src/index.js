@@ -53,8 +53,9 @@ const container = document.getElementById('pagination', options);
 const pagination = new Pagination(container);
 
 //  ------------------------------------------ paginator ------------------------------------------
+const currentMonthYear = document.querySelector('.current-date');
 const localStorageEntity = new LocalStorageClass();
-const weather = new Weather();
+const weather = new Weather();                   
 const renderNews = new RenderNews();
 const fetchNews = new FetchNews();
 const newsList = document.querySelector('.list-news');
@@ -67,8 +68,9 @@ const otherCategoriesThumb = document.querySelector('.filter-category__list');
 const otherCategoryContainer = document.querySelector(
   '.category__others-container'
 );
+const chooseDate = document.querySelector('.days');
 
-
+chooseDate.addEventListener('click', onChooseDateClick)
 categoriesList.addEventListener('click', onCategoryClick);
 otherCategoriesThumb.addEventListener('click', onCategoryClick);
 // otherCategoriesBtn.addEventListener('click', onOtherCategoriesClick);
@@ -78,6 +80,10 @@ searchForm.addEventListener('submit', onFormSubmit);
 newsList.addEventListener(
   'click',
   localStorageEntity.onAddToFavoriteClick.bind(localStorageEntity)
+);
+newsList.addEventListener(
+  'click',
+  localStorageEntity.onReadMoreClick.bind(localStorageEntity)
 );
 // document.addEventListener('click', onDocumentClick);
 
@@ -299,6 +305,13 @@ function getDataNeeded (arr) {
         }
       });
 }
+
+
+function onChooseDateClick(e) {
+  fetchNews.date = e.target.textContent;
+  // console.log(fetchNews.date);
+  // console.log(currentMonthYear.textContent);
+}
 // добавить категории для мобилки 
 
 // добавить клик по фаворит  класс hidden-span
@@ -310,3 +323,48 @@ function getDataNeeded (arr) {
 // выбор даты и сохранение 
 
 // {abstract, media[0][media-metadata][0], published_date, title, url, nytdsection}
+
+
+// ------------------------------------------------  READ PAGE      -------------------------------------------------------------------
+
+
+// if (readNewsList) {
+//   readNewsList.addEventListener('click', onClick);
+// }
+
+// localStorageReadData = JSON.parse(localStorageReadData);
+// function onClick(e) {
+//   if (!e.target.classList.contains('item-news__info-link')) {
+//     return;
+//   }
+
+//   const choosenNews = e.target.closest('.list-news__item'); // лишка
+//   const id = choosenNews.dataset.id;
+//   //   e.target // toggle class
+//   //     .closest('.item-news__info-link')
+//   //     .classList.toggle('hidden-span');
+
+//   const idX = localStorageFavoriteData.findIndex(item => item.id === id);
+//   localStorageFavoriteData.splice(idX, 1);
+//   localStorage.setItem('favorite', JSON.stringify(localStorageFavoriteData));
+//   if (localStorageFavoriteData.length) {
+//     const favoriteMarkup = localStorageFavoriteData
+//       .map(element => {
+//         return element.markup;
+//         // console.log(element.markup);
+//       })
+//       .join('');
+//     readNewsList.innerHTML = favoriteMarkup;
+//   }
+//   //   else {
+//   //     readNewsList.innerHTML = `<section class="background">
+//   //     <div class="favorite-container container">
+//   //         <p class="background___title">We haven't found news from this category</p>
+//   //         <picture>
+
+//   //           <img class="background___picture" src="https://i.ibb.co/cFdrWFz/desktop.png" alt="background-picture" width="248" height="198">
+//   //         </picture>
+//   //     </div>
+//   //   </section>`;
+//   //   }
+// }
