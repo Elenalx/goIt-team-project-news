@@ -677,7 +677,50 @@ svg {
 
 .button__wrap {
     display: flex;
-    gap: 60px;
+    gap: 10px;
     margin: 10px 0;
     justify-content: center;
 }
+
+.paginator__item-bt-arrow:hover,
+.paginator__item-bt-arrow:focus {
+    cursor: pointer;
+    background-color: #4440F7;
+    color: white;
+    text-decoration-color: white;
+}
+
+.paginator__item-bt:hover,
+.paginator__item-bt:focus {
+    cursor: pointer;
+    background-color: #4440F7;
+    color: white;
+    text-decoration-color: white;
+}
+
+.paginator__item-bt {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 21px;
+    gap: 10px;
+
+    width: auto;
+    height: 31px;
+
+    border: 1px solid #4440F7;
+    background-color: white;
+    border-radius: 20px;
+
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+
+    color: #4440F7;
+
+}
+
