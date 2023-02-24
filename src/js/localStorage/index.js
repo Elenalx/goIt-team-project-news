@@ -1,10 +1,5 @@
 import RenderNews from '../renderNews';
 
-// const favoriteNewsList = document.querySelector('#favorite__news');
-
-
-
-
 
 export default class LocalStorageClass {
   constructor() {
@@ -108,9 +103,3 @@ export default class LocalStorageClass {
   
 
 }
-
-// const localStorageEntity = new LocalStorageClass();
-// favoriteNewsList.addEventListener(
-//   'click',
-//   localStorageEntity.onAddToFavoriteClick.bind(localStorageEntity)
-// );

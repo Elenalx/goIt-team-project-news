@@ -1,8 +1,8 @@
 import { format, compareAsc } from 'date-fns';
-// import LocalStorage from '../localStorage';
+import { pagination } from '../../index';
 
 const addToFavoriteBtn = document.querySelector('.item-news__add-to-favorite');
-// const localStorage = new LocalStorage();
+
 const mobileScreenSize = window.matchMedia(
   'screen and (max-width: 767px)'
 ).matches;
@@ -12,7 +12,7 @@ const tabletScreenSize = window.matchMedia(
 const desktopScreenSize = window.matchMedia(
   'screen and (min-width: 1280px)'
 ).matches;
-// const weatherMarkup = `<div class="weather"></div>`;
+
 
 export default class RenderNews {
   constructor() {
@@ -23,16 +23,16 @@ export default class RenderNews {
     this.weatherMarkup = '';
   }
   async renderPopularNews(newsArr, elemToJoin) {
-    console.log(newsArr);
     if (mobileScreenSize === true) {
-      // менять надпись other на categories
       this.lastElem = this.currentPage * 4;
       this.firstElem = this.lastElem - 4;
       this.maxPages = Math.ceil(newsArr.length / 4);
+
     } else if (tabletScreenSize === true) {
       this.lastElem = this.currentPage * 7;
       this.firstElem = this.lastElem - 7;
       this.maxPages = Math.ceil(newsArr.length / 8);
+
     } else if (desktopScreenSize === true) {
       this.lastElem = this.currentPage * 8;
       this.firstElem = this.lastElem - 8;
@@ -50,22 +50,6 @@ export default class RenderNews {
         if (media.length !== 0) {
           imageURL = media[0]['media-metadata'][2].url;
         }
-
-        
-        // console.log(localStorage.getItem('favorite').length);
-                        // if (localStorage.getItem('favorite').length > 0) {
-                        //   const localStorageFavoriteData =
-                        //     localStorage.getItem('favorite'); // данные с LS
-                        //   const parsedData = JSON.parse(
-                        //     localStorageFavoriteData
-                        //   ); // распарсенніе данные (массив объектов)
-                        //   parsedData.map(element => {
-                        //     if (element.id === id) {
-                        //       console.log(element.id);
-                        //       console.log(id)
-                        //     }
-                        //   });
-                        // }
         return `<li class="list-news__item popular-news__item" data-id=${id}>
   <article class="item-news__article">
     <div class="item-news__wrapper-img">

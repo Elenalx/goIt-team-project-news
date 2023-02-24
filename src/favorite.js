@@ -1,4 +1,3 @@
-// import './js/localStorage';
 import LocalStorageClass from './js/localStorage';
 import './js/dark-light_theme';
 
@@ -15,7 +14,6 @@ if (localStorageFavoriteData && localStorageFavoriteData.length) {
   const favoriteMarkup = parsedData
     .map(element => {
       return element.markup;
-      // console.log(element.markup);
     })
     .join('');
   favoriteNewsList.innerHTML = favoriteMarkup;
@@ -47,7 +45,6 @@ function onClick(e) {
 const favoriteMarkup = localStorageFavoriteData
   .map(element => {
     return element.markup;
-    // console.log(element.markup);
   })
   .join('');
 favoriteNewsList.innerHTML = favoriteMarkup;
@@ -66,20 +63,4 @@ favoriteNewsList.innerHTML = favoriteMarkup;
 
 }
 
-
-// `          <source media="(max-width:767.99px)" srcset="
-//                       ./images/mobile.png 248w,
-//                       ./images/mobile@2x.png 496w 
-//                       " sizes="248px" />
-//           <source media="(max-width:1279.99px)" srcset="
-//                       ./images/tablet.png 560w,
-//                       ./images/tablet@2x.png 1120w
-//                       " sizes="560px" />
-//           <source media="(min-width:1280px)" srcset="
-//                       ./images/desktop.png 601w,
-//                       ./images/desktop@2x.png 1202w
-//                       " sizes="601px" />`;
-
-
-//  console.log(favoriteContainer);
 

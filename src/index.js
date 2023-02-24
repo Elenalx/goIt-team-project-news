@@ -1,14 +1,12 @@
 import './js/dark-light_theme';
 import './js/categories';
 import './js/weather';
-// import './js/mobile-menu';
+import './js/mobile-menu';
 import './js/localStorage';
 import FetchNews from './js/fetchNews';
 import RenderNews from './js/renderNews';
 import Weather from './js/weather';
-import Pagination from 'tui-pagination';
-import LocalStorageClass from './js/localStorage'
-import 'tui-pagination/dist/tui-pagination.css';
+import LocalStorageClass from './js/localStorage';
 
 
   
@@ -22,37 +20,7 @@ const desktopScreenSize = window.matchMedia(
   'screen and (min-width: 1280px)'
 ).matches;
 
-// ------------------------------------------ paginator ------------------------------------------
-const options = {
-  totalItems: 10,
-  itemsPerPage: 10,
-  visiblePages: 10,
-  page: 1,
-  centerAlign: false,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
-};
-const container = document.getElementById('pagination', options);
-const pagination = new Pagination(container);
 
-//  ------------------------------------------ paginator ------------------------------------------
 const currentMonthYear = document.querySelector('.current-date');
 const localStorageEntity = new LocalStorageClass();
 const weather = new Weather();                   
@@ -73,7 +41,6 @@ const chooseDate = document.querySelector('.days');
 chooseDate.addEventListener('click', onChooseDateClick)
 categoriesList.addEventListener('click', onCategoryClick);
 otherCategoriesThumb.addEventListener('click', onCategoryClick);
-// otherCategoriesBtn.addEventListener('click', onOtherCategoriesClick);
 prevPage.addEventListener('click', onPrevBtnClick);
 nextPage.addEventListener('click', onNextBtnClick);
 searchForm.addEventListener('submit', onFormSubmit);
@@ -85,7 +52,7 @@ newsList.addEventListener(
   'click',
   localStorageEntity.onReadMoreClick.bind(localStorageEntity)
 );
-// document.addEventListener('click', onDocumentClick);
+
 
 
 // --------------------------------------------- вызовы функций при первой загрузке ---------------------------------------------
@@ -98,21 +65,6 @@ getCategoriesList();
 localStorage.removeItem('favorite');
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
-// function onOtherCategoriesClick() {
-//   otherCategoriesThumb.classList.toggle('is-hidden');
-// }
-
-// function onDocumentClick(e) {
-//   if (e.target !== otherCategoryContainer && e.target !== otherCategoryBtn) {
-//     otherCategoryContainer.classList.remove('is-open');
-//   }
-// }
-
-// function onDocumentClick(e) {
-//   if (e.currentTarget !== otherCategoryContainer) {
-//     otherCategoryContainer.classList.remove('is-open');
-//   }
-// }
 
 async function onPrevBtnClick() {
   if (searchForm.elements.searchQuery.value !== '') {
@@ -271,13 +223,8 @@ async function onPageLoad() {
 fetchNews
     .fetchNewsByMostPopular()
   .then(result => {
-    console.log(result.results)
     renderNews.renderPopularNews(result.results, newsList);
     weather.askGeo();
-
-    // getDataNeeded(result.results);
-    // console.log(localStorageEntity.popularArr);
-     
    })
    .catch(error => console.log(error));
 }
@@ -309,62 +256,5 @@ function getDataNeeded (arr) {
 
 function onChooseDateClick(e) {
   fetchNews.date = e.target.textContent;
-  // console.log(fetchNews.date);
-  // console.log(currentMonthYear.textContent);
+
 }
-// добавить категории для мобилки 
-
-// добавить клик по фаворит  класс hidden-span
-
-// при сабмите возвращаться на главную 
-
-// ан аккордеоне добавлять класс   is-hidden
-
-// выбор даты и сохранение 
-
-// {abstract, media[0][media-metadata][0], published_date, title, url, nytdsection}
-
-
-// ------------------------------------------------  READ PAGE      -------------------------------------------------------------------
-
-
-// if (readNewsList) {
-//   readNewsList.addEventListener('click', onClick);
-// }
-
-// localStorageReadData = JSON.parse(localStorageReadData);
-// function onClick(e) {
-//   if (!e.target.classList.contains('item-news__info-link')) {
-//     return;
-//   }
-
-//   const choosenNews = e.target.closest('.list-news__item'); // лишка
-//   const id = choosenNews.dataset.id;
-//   //   e.target // toggle class
-//   //     .closest('.item-news__info-link')
-//   //     .classList.toggle('hidden-span');
-
-//   const idX = localStorageFavoriteData.findIndex(item => item.id === id);
-//   localStorageFavoriteData.splice(idX, 1);
-//   localStorage.setItem('favorite', JSON.stringify(localStorageFavoriteData));
-//   if (localStorageFavoriteData.length) {
-//     const favoriteMarkup = localStorageFavoriteData
-//       .map(element => {
-//         return element.markup;
-//         // console.log(element.markup);
-//       })
-//       .join('');
-//     readNewsList.innerHTML = favoriteMarkup;
-//   }
-//   //   else {
-//   //     readNewsList.innerHTML = `<section class="background">
-//   //     <div class="favorite-container container">
-//   //         <p class="background___title">We haven't found news from this category</p>
-//   //         <picture>
-
-//   //           <img class="background___picture" src="https://i.ibb.co/cFdrWFz/desktop.png" alt="background-picture" width="248" height="198">
-//   //         </picture>
-//   //     </div>
-//   //   </section>`;
-//   //   }
-// }

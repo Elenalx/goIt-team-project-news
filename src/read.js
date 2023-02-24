@@ -18,7 +18,7 @@ if (localStorageReadData && localStorageReadData.length) {
   const readMarkup = parsedData
     .map(element => {
       return element.markup;
-      // console.log(element.markup);
+
     })
     .join('');
   readNewsList.innerHTML = readMarkup;
