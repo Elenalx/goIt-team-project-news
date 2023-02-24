@@ -7,6 +7,7 @@ import FetchNews from './js/fetchNews';
 import RenderNews from './js/renderNews';
 import Weather from './js/weather';
 import Pagination from 'tui-pagination';
+import LocalStorageClass from './js/localStorage'
 import 'tui-pagination/dist/tui-pagination.css';
 
 
@@ -52,7 +53,7 @@ const container = document.getElementById('pagination', options);
 const pagination = new Pagination(container);
 
 //  ------------------------------------------ paginator ------------------------------------------
-
+const localStorageEntity = new LocalStorageClass();
 const weather = new Weather();
 const renderNews = new RenderNews();
 const fetchNews = new FetchNews();
@@ -74,17 +75,21 @@ otherCategoriesThumb.addEventListener('click', onCategoryClick);
 prevPage.addEventListener('click', onPrevBtnClick);
 nextPage.addEventListener('click', onNextBtnClick);
 searchForm.addEventListener('submit', onFormSubmit);
+newsList.addEventListener(
+  'click',
+  localStorageEntity.onAddToFavoriteClick.bind(localStorageEntity)
+);
 // document.addEventListener('click', onDocumentClick);
 
 
 // --------------------------------------------- вызовы функций при первой загрузке ---------------------------------------------
-
       
 onPageLoad();
 
 
 getCategoriesList();
 
+localStorage.removeItem('favorite');
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 // function onOtherCategoriesClick() {
@@ -256,15 +261,44 @@ async function onPageLoad() {
     })
     .catch(error => console.log(error));
 
+  
 fetchNews
     .fetchNewsByMostPopular()
-   .then(result => {
-     renderNews.renderPopularNews(result.results, newsList);
-     weather.askGeo();
+  .then(result => {
+    console.log(result.results)
+    renderNews.renderPopularNews(result.results, newsList);
+    weather.askGeo();
+
+    // getDataNeeded(result.results);
+    // console.log(localStorageEntity.popularArr);
+     
    })
    .catch(error => console.log(error));
 }
 
+
+function getDataNeeded (arr) {
+     arr.map(result => {
+        if (Object.values(result.media).length > 0) {
+          localStorageEntity.popularArr.push({
+            title: result.title,
+            desc: result.abstract,
+            date: result.published_date,
+            url: result.url,
+            imageURL: result.media[0]['media-metadata'][0].ulr,
+          });
+        } else {
+          localStorageEntity.popularArr.push({
+            title: result.title,
+            desc: result.abstract,
+            date: result.published_date,
+            category: result.section,
+            url: result.url,
+            imageURL: `https://img.freepik.com/free-vector/internet-network-warning-404-error-page-or-file-not-found-for-web-page_1150-48326.jpg?w=996&t=st=1676297842~exp=1676298442~hmac=6cad659e6a3076ffcb73bbb246c4f7e5e1bf7cee7fa095d67fcced0a51c2405c`,
+          });
+        }
+      });
+}
 // добавить категории для мобилки 
 
 // добавить клик по фаворит  класс hidden-span
@@ -275,3 +309,4 @@ fetchNews
 
 // выбор даты и сохранение 
 
+// {abstract, media[0][media-metadata][0], published_date, title, url, nytdsection}
