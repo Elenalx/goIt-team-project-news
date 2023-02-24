@@ -674,3 +674,10 @@ svg {
         gap: 18px;
     }
 }
+
+.button__wrap {
+    display: flex;
+    gap: 60px;
+    margin: 10px 0;
+    justify-content: center;
+}
